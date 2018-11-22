@@ -64,7 +64,7 @@ public class Freightliner extends Cars implements Loadable {
     }
 
     public void loadCar(Cars c){
-        if (tmp.size() < maxCars && getTiltDeg() == 70 && !tmp.contains(c) && this != c){
+        if (tmp.size() < maxCars && getTiltDeg() == 70 && c.distanceTo(this) < 20 && !tmp.contains(c) && this != c){
             tmp.push(c);
             c.setSamePosition(this);
         }

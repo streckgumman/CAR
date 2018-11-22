@@ -72,7 +72,7 @@ public class Cargoship extends Vehicle implements Loadable,Movable { //not worki
      * @param car
      */
     public void loadCar(Cars car){
-        if (loaded.size() < maxCars && getTiltDeg() == 70 && !loaded.contains(car) /*&& car.distanceTo(this) < 50*/ && !loaded.contains(car)){//add distance between car and carrier
+        if (loaded.size() < maxCars && getTiltDeg() == 70 && !loaded.contains(car) && car.distanceTo(this) < 20 && !loaded.contains(car)){//add distance between car and carrier
             loaded.add(car);
             car.setSamePosition(this);
         }

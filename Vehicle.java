@@ -218,7 +218,7 @@ public abstract class Vehicle implements Movable{
      * @return double distance
      */
     double distanceTo(Vehicle vehicle){
-        return (this.posX - vehicle.posX) / (this.posY - vehicle.posY);
+        return Math.sqrt(Math.pow(  Math.abs(this.posX - vehicle.posX), 2) + Math.pow(Math.abs(this.posY - vehicle.posY), 2));
     }
 
     /**
