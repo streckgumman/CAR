@@ -9,10 +9,10 @@ import java.security.InvalidParameterException;
 public abstract class Vehicle implements Movable{
 
 
-    private final double enginePower; // Engine power of the car
-    private double currentSpeed; // The current speed of the car
-    private Color color; // Color of the car
-    private final String modelName; // The car model name
+    private final double enginePower; // Engine power of the vehicle
+    private double currentSpeed; // The current speed of the vehicle
+    private Color color; // Color of the vehicle
+    private final String modelName; // The vehicle model name
     private int deg = 0;
     private double posX = 0;
     private double posY = 0;

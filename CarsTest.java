@@ -9,6 +9,7 @@ class CarsTest {
     private final Scania c3 = new Scania();
     private final Freightliner c4 = new Freightliner();
     private final Cargoship c5 = new Cargoship();
+    private final FordGalaxy c6 = new FordGalaxy();
 
     @org.junit.jupiter.api.Test
     void startEngine() {
@@ -149,7 +150,7 @@ class CarsTest {
     }
 
     @Test
-    void loadFreightliner() {
+    void loadCar() {
         assertEquals(c4.getAmountLoaded(),0);
         c4.loadCar(c1);
         assertEquals(c4.getAmountLoaded(),0);
@@ -158,24 +159,7 @@ class CarsTest {
         c4.loadCar(c1); //cant load itself or the same car multiple times
         c4.loadCar(c1);
         assertEquals(c4.getAmountLoaded(),1); // test for what happens if list is full needed
-    }
 
-    @Test
-    void unloadFreightliner() {
-        assertEquals(c4.getAmountLoaded(),0);
-        c4.tiltDown();
-        c4.unloadCar();
-        assertEquals(c4.getAmountLoaded(),0);
-        c4.loadCar(c1);
-        c4.loadCar(c2);
-        assertEquals(c4.getAmountLoaded(),2);
-        c4.unloadCar();
-        assertEquals(c4.getAmountLoaded(),1);
-    }
-
-
-    @Test
-    void loadCargoship() {
         assertEquals(c5.getLoaded(),0);
         c5.loadCar(c1);
         assertEquals(c5.getLoaded(),0);
@@ -187,7 +171,17 @@ class CarsTest {
     }
 
     @Test
-    void unloadCargoship() {
+    void unloadCar() {
+        assertEquals(c4.getAmountLoaded(),0);
+        c4.tiltDown();
+        c4.unloadCar();
+        assertEquals(c4.getAmountLoaded(),0);
+        c4.loadCar(c1);
+        c4.loadCar(c2);
+        assertEquals(c4.getAmountLoaded(),2);
+        c4.unloadCar();
+        assertEquals(c4.getAmountLoaded(),1);
+
         assertEquals(c5.getLoaded(),0);
         c5.tiltDown();
         c5.unloadCar();
@@ -198,6 +192,9 @@ class CarsTest {
         c5.unloadCar();
         assertEquals(c5.getLoaded(),1);
     }
+
+
+
 
     @Test
     void setSamePosition(){
@@ -210,11 +207,25 @@ class CarsTest {
     void moveWithLoad(){
         c5.loadCar(c1);
         c5.loadCar(c2);
+        c5.loadCar(c6);
+        c5.move();
+        c5.turnRight();
         c5.move();
         assertEquals(c1.getPosY(), c5.getPosY());
         assertEquals(c1.getPosX(), c5.getPosX());
-        assertEquals(c2.getPosY(), c5.getPosY());
-        assertEquals(c2.getPosX(), c5.getPosX());
+
+
+        c4.loadCar(c1);
+        c4.loadCar(c2);
+
+        c4.turnLeft();
+        c4.move();
+        c4.move();
+        c4.turnLeft();
+        assertEquals(c1.getPosY(), c4.getPosY());
+        assertEquals(c1.getPosX(), c4.getPosX());
+        assertEquals(c2.getPosY(), c4.getPosY());
+        assertEquals(c2.getPosX(), c4.getPosX());
     }
 
 

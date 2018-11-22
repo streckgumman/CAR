@@ -1,15 +1,18 @@
 import java.awt.*;
 
+/**
+ * An extra car class for Ford Galaxy just because.
+ */
 public class FordGalaxy extends Cars{
 
-    private int nDoors;
+
     public FordGalaxy() {
-        super( 80, 0, Color.GRAY, "Ford Galaxy");
-        this.nDoors = 4;
+        super( 4, 80, Color.GRAY, "Ford Galaxy");
+
     }
 
     @Override
     public double speedFactor() {
-        return 0;
+        return getEnginePower() * 0.01;
     }
 }

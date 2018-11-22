@@ -8,6 +8,10 @@ import java.security.InvalidParameterException;
  * Implements the interface Movable and imports java.awt and java.lang.Math.
  */
 public abstract class Cars extends Vehicle implements Movable {
+    /**
+     * A car has all things a vehicle has, and also doors.
+     */
+    private final int nrDoors; // Number of doors on the car
 
     /**
      * Constructor for a car.
@@ -17,9 +21,6 @@ public abstract class Cars extends Vehicle implements Movable {
      * @param color       Indicates the color of the car.
      * @param modelName   Indicates the name of a certain car model.
      */
-    private final int nrDoors; // Number of doors on the car
-
-
     public Cars(int nrDoors, double enginePower, Color color, String modelName) {
         super( enginePower, color, modelName);
         this.nrDoors = nrDoors;
