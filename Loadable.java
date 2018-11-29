@@ -1,9 +1,8 @@
 /**
- * An interface for all objects that have something to tilt.
+ * An interface for all objects that have something to load.
  */
 public interface Loadable {
-    void tiltUp();
-
-    void tiltDown();
-
+    void unloadCar();
+    void loadCar(Cars c);
+    double getTiltDeg();
 }

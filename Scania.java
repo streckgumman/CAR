@@ -38,6 +38,8 @@ public class Scania extends Cars implements Loadable{
         }
     }
 
+
+
     public double getTiltDeg() {
         return tiltDeg;
     }
@@ -66,4 +68,13 @@ public class Scania extends Cars implements Loadable{
     public double speedFactor() {
         return getEnginePower();
     }
+
+    @Override
+    public void unloadCar() {
+    }
+
+    @Override
+    public void loadCar(Cars c) {
+    }
+
 }

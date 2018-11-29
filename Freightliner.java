@@ -10,15 +10,15 @@ import java.util.List;
  */
 public class Freightliner extends Cars implements Loadable {
     private double tiltDeg;
-    private final int maxCars;
-    private final Deque<Cars> tmp = new ArrayDeque<>(); //Solve issue with loading of in the other order from this class
+    private final int maxCars = 3;
+    private final Cargo c = new Cargo(this, maxCars);
+   //Solve issue with loading of in the other order from this class
 
     /**
      * A constructor for the FreightLiner.
      */
     public Freightliner() {
         super(2, 60, Color.blue, "Freightliner");
-        this.maxCars = 3;
         this.tiltDeg = 0;
     }
     /**
@@ -27,21 +27,21 @@ public class Freightliner extends Cars implements Loadable {
     @Override
     public void move(){
         super.move();
-        for (Cars c : tmp){
+        for (Cars c : c.getLoaded()){
             c.setSamePosition(this);
         }
     }
     /**
      * A method that tilts the ramp up.
      */
-    @Override
+
     public void tiltUp() {
         this.tiltDeg = 0;
     }
     /**
      * A method that tilts the ramp down
      */
-    @Override
+
     public void tiltDown() {
         this.tiltDeg = 70;
     }
@@ -50,10 +50,6 @@ public class Freightliner extends Cars implements Loadable {
 
     public double getTiltDeg() {
         return tiltDeg;
-    }
-
-    public int getAmountLoaded() {
-        return tmp.size();
     }
     /**
      * A start engine that only works when the ramp is up.
@@ -80,22 +76,19 @@ public class Freightliner extends Cars implements Loadable {
 
     /**
      * A method that loads the cars according to the "last in, first out" - principle.
-     * @param c
+     * @param car
      */
-    public void loadCar(Cars c){
-        if (tmp.size() < maxCars && getTiltDeg() == 70 && c.distanceTo(this) < 20 && !tmp.contains(c) && this != c){
-            tmp.push(c);
-            c.setSamePosition(this);
-        }
+    public void loadCar(Cars car){
+        c.loadCar(car);
     }
 
     /**
      * A method that unloads the cars according to the "last in, first out" - principle.
      */
     public void unloadCar(){
-        if(getTiltDeg() == 70 && !tmp.isEmpty()){
-            Cars c = tmp.pop();
-            c.setBeside(this);
-        }
+        c.unloadCar();
+    }
+    public int getAmountLoaded(){
+        return c.getLoadedAmount();
     }
 }

@@ -208,7 +208,7 @@ public abstract class Vehicle implements Movable{
      *
      * @param deg = new value for the angle
      */
-    void setDeg(int deg) {
+    private void setDeg(int deg) {
         this.deg = deg;
     }
 

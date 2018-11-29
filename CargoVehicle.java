@@ -5,30 +5,31 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
-/**
- * A class that represents a Cargoship that carries cars.
- * Could create an abstract boat class in the future if need be.
- */
-public class Cargoship extends Vehicle implements Loadable {
-    private final int maxCars = 10;
-    private final Cargo c = new Cargo(this, maxCars);
+public abstract class CargoVehicle extends Vehicle implements Loadable{
+    protected final int maxCars;
     private double tiltDeg;
+    protected final List<Cars> loaded = new ArrayList<Cars>();
+    private final Deque<Cars> tmp = new ArrayDeque<>(); //Solve issue with loading of in the other order from this class
     /**
-     * constructor for the ship.
+     * Constructor for a Vehicle.
+     *
+     * @param enginePower Indicates the power of the engine of the car.
+     * @param color       Indicates the color of the car.
+     * @param modelName   Indicates the name of a certain car model.
      */
-    public Cargoship(){
-        super(30, Color.GRAY, "CargoShip");
+    public CargoVehicle(double enginePower, Color color, String modelName, int maxCars) {
+        super(enginePower, color, modelName);
+        this.maxCars = maxCars;
         this.tiltDeg = 0;
-
     }
 
-    /**
-     * A method that makes the cars loaded on our ship travel along with it.
-     */
     @Override
     public void move(){
         super.move();
-        for (Cars c : c.getLoaded()){
+        for (Cars c : loaded){
+            c.setSamePosition(this);
+        }
+        for (Cars c : tmp){
             c.setSamePosition(this);
         }
     }
@@ -79,7 +80,7 @@ public class Cargoship extends Vehicle implements Loadable {
      * @return
      */
     public int getLoaded() {
-        return c.getLoadedAmount();
+        return loaded.size();
     }
 
     public double getTiltDeg() {
@@ -87,19 +88,7 @@ public class Cargoship extends Vehicle implements Loadable {
     }
 
 
-    /**
-     * A method that loads the cars according to the "First in, first out"-principle.
-     * @param car
-     */
-    public void loadCar(Cars car){
-        c.loadCar(car);
-    }
 
-    /**
-     * A method that unloads the car according to the "First in, first out"-principle.
-     */
-    public void unloadCar(){
-        c.unloadCar();
-    }
+
 
 }
