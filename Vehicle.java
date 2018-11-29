@@ -104,7 +104,7 @@ public abstract class Vehicle implements Movable{
      */
     @Override
     public void turnLeft() {
-        deg = deg + 1;
+        deg = deg + 90;
     }
 
     /**
@@ -112,7 +112,7 @@ public abstract class Vehicle implements Movable{
      */
     @Override
     public void turnRight() {
-        deg = deg - 1;
+        deg = deg - 90;
     }
 
     /**
