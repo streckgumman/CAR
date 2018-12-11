@@ -9,7 +9,7 @@ import java.security.InvalidParameterException;
  * Extends the abstract class Vehicle.
  * Implements the interface Model.Movable and imports java.awt and java.lang.Math.
  */
-public abstract class Car extends Vehicle implements Movable {
+public abstract class Cars extends Vehicle implements Movable {
     /**
      * A car has all things a vehicle has, and also doors.
      */
