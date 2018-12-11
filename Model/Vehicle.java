@@ -1,12 +1,14 @@
+package Model;
+
 import java.awt.*;
 import java.security.InvalidParameterException;
 
 /**
  * A class for all types of vehicles.
- * Implements the interface Movable.
+ * Implements the interface Model.Movable.
  *
  */
-public abstract class Vehicle implements Movable{
+public abstract class Vehicle implements Movable {
 
 
     private final double enginePower; // Engine power of the vehicle
@@ -35,14 +37,14 @@ public abstract class Vehicle implements Movable{
     /**
      * Starts the engine of the car. Effectively sets currentSpeed to 0.1
      */
-    void startEngine() {
+    public void startEngine() {
         currentSpeed = 0.1;
     }
 
     /**
      * Stops the engine of the car. Effectively sets currentSpeed to 0.
      */
-    void stopEngine() {
+    public void stopEngine() {
         currentSpeed = 0;
     }
 
@@ -55,7 +57,7 @@ public abstract class Vehicle implements Movable{
 
 
     /**
-     * A method that increments the speed of our Cars by the following formula.
+     * A method that increments the speed of our Model.Cars by the following formula.
      * currentSpeed = getCurrentSpeed() + speedFactor * amount
      *
      * @param amount This value is determined by the gas() method. Valid range [0,1]
@@ -70,7 +72,7 @@ public abstract class Vehicle implements Movable{
     }
 
     /**
-     * A method that decrements the speed of our Cars by the following formula.
+     * A method that decrements the speed of our Model.Cars by the following formula.
      * currentSpeed = getCurrentSpeed() - speedFactor * amount
      *
      * @param amount This value is determined by the break() method. Valid range [0,1]
@@ -121,7 +123,7 @@ public abstract class Vehicle implements Movable{
      * @param amount Indicates how much the car gases from a scale from 0 to 1.
      * @throws InvalidParameterException if amount is not between 0 and 1.
      */
-    void gas(double amount) throws InvalidParameterException {
+    public void gas(double amount) throws InvalidParameterException {
         if (amount >= 0 && amount <= 1) {
             incrementSpeed(amount);
         } else {
@@ -135,7 +137,7 @@ public abstract class Vehicle implements Movable{
      * @param amount Indicates how hard the car breaks from a scale from 0 to 1.
      * @throws InvalidParameterException if amount is not between 0 and 1.
      */
-    void brake(double amount) throws InvalidParameterException {
+    public void brake(double amount) throws InvalidParameterException {
         if (amount >= 0 && amount <= 1) {
             decrementSpeed(amount);
         } else {
@@ -167,14 +169,14 @@ public abstract class Vehicle implements Movable{
     /**
      * @return posX
      */
-    double getPosX() {
+    public double getPosX() {
         return posX;
     }
 
     /**
      * @return posY
      */
-    double getPosY() {
+    public double getPosY() {
         return posY;
     }
 
@@ -199,7 +201,7 @@ public abstract class Vehicle implements Movable{
     /**
      * @return int deg
      */
-    int getDeg() {
+    public int getDeg() {
         return deg;
     }
 
@@ -237,6 +239,9 @@ public abstract class Vehicle implements Movable{
      public void setBeside(Vehicle vehicle){
         vehicle.setPosY(this.posY + 20);
         vehicle.setPosX(this.posX + 20);
+    }
+    public String getModelName() {
+        return modelName;
     }
 
 }

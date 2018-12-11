@@ -1,8 +1,11 @@
+package Model;
+
+import Model.Cars;
 
 import java.awt.*;
 
 /**
- * Specific car model, Volvo240. Subclass to Cars Imports java.awt.
+ * Specific car model, Volvo240. Subclass to Model.Cars Imports java.awt.
  */
 
 public class Volvo240 extends Cars {
@@ -14,7 +17,7 @@ public class Volvo240 extends Cars {
     /**
      * Constructor for the Volvo240.
      */
-    public Volvo240() {
+    Volvo240() {
         super(4, 100, Color.black, "Volvo240");
         this.stopEngine();
     }

@@ -1,15 +1,19 @@
+package Model;
+
+import Model.Cars;
+
 import java.awt.*;
 import java.security.InvalidParameterException;
 
 /**
  * A class for a lastbil.
- * Implements the interface Loadable.
- * Extends Cars.
+ * Implements the interface Model.Loadable.
+ * Extends Model.Cars.
  */
-public class Scania extends Cars implements Loadable{
+public class Scania extends Cars implements Loadable {
     private double tiltDeg;
 
-    public Scania() {
+    Scania() {
         super(2, 90, Color.black, "Scania");
         this.tiltDeg = 0;
     }
@@ -38,8 +42,6 @@ public class Scania extends Cars implements Loadable{
         }
     }
 
-
-
     public double getTiltDeg() {
         return tiltDeg;
     }
@@ -48,7 +50,7 @@ public class Scania extends Cars implements Loadable{
      * A method that starts the engine and sets the ramp up.
      */
     @Override
-    void startEngine() {
+    public void startEngine() {
         this.tiltDeg = 0;
         super.startEngine();
     }
@@ -59,14 +61,14 @@ public class Scania extends Cars implements Loadable{
      * @throws InvalidParameterException
      */
     @Override
-    void gas(double amount) throws InvalidParameterException {
+    public void gas(double amount) throws InvalidParameterException {
         this.tiltDeg = 0;
         super.gas(amount);
     }
 
     @Override
     public double speedFactor() {
-        return getEnginePower();
+        return getEnginePower()/100;
     }
 
     @Override

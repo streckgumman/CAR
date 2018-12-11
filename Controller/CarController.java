@@ -1,4 +1,15 @@
+package Controller;
+
+import Model.Cars;
+import Model.Saab95;
+import Model.Scania;
+import Model.VehicleFactory;
+import View.CarView;
+
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -19,10 +30,10 @@ public class CarController {
     private Timer timer = new Timer(delay, new TimerListener());
 
     // The frame that represents this instance View of the MVC pattern
-    CarView frame;
+    public CarView frame;
 
     // A list of cars, modify if needed
-    static ArrayList<Cars> cars = new ArrayList<>();
+    private final static ArrayList<Cars> cars = new ArrayList<>();
 
     //methods:
 
@@ -31,10 +42,9 @@ public class CarController {
         CarController cc = new CarController();
 
 
-        cc.cars.add(new Volvo240());
-        cc.cars.add(new Saab95());
-        cc.cars.add(new Scania());
-
+        cc.cars.add(VehicleFactory.createVolvo());
+        cc.cars.add(VehicleFactory.createSaab());
+        cc.cars.add(VehicleFactory.createScania());
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
@@ -48,66 +58,74 @@ public class CarController {
      * */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            int position = 0;
+            int count = 0;
             for (Cars car : cars) {
                 car.move();
                 int x = (int) Math.round(car.getPosX());
                 int y = (int) Math.round(car.getPosY());
-                frame.drawPanel.moveit(x, y, position);
+                frame.drawPanel.moveit(x, y, count);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
-                position++;
+                count++;
             }
         }
     }
 
-    // Calls the gas method for each car once
-    void gas(int amount) {
+
+
+
+
+
+
+
+
+        // Calls the gas method for each car once
+    public void gas(int amount) {
         double gas = ((double) amount) / 100;
-        for (Cars car : cars
-        ) {
-            car.gas(gas);
+        for (Cars car : cars) {
+                car.gas(gas);
         }
+
     }
-    void brake(int amount) {
+    public void brake(int amount) {
         double brake = ((double) amount) / 100;
         for (Cars car : cars
         ) {
             car.brake(brake);
         }
     }
-    void startEngine(){
+    public void startEngine(){
         for (Cars car : cars){
             car.startEngine();
         }
     }
-    void stopEngine(){
+    public void stopEngine(){
         for (Cars car : cars){
             car.stopEngine();
         }
     }
-    void tiltDown(){
+    public void tiltDown(){
         for (Cars car : cars){
             if (car instanceof Scania){
                 ((Scania) car).tiltDown();
             }
         }
     }
-    void tiltUp(){
+    public void tiltUp(){
         for (Cars car : cars){
             if (car instanceof Scania){
                 ((Scania) car).tiltDown();
             }
         }
     }
-    void setTurboOn(){
+    public void setTurboOn(){
         for (Cars car : cars){
             if (car instanceof Saab95){
                 ((Saab95) car).setTurboOn();
             }
         }
     }
-    void setTurboOff(){
+    public void setTurboOff(){
         for (Cars car : cars){
             if (car instanceof Saab95){
                 ((Saab95) car).setTurboOff();

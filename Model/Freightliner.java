@@ -1,3 +1,5 @@
+package Model;
+
 import java.awt.*;
 import java.security.InvalidParameterException;
 import java.util.ArrayDeque;
@@ -17,8 +19,8 @@ public class Freightliner extends Cars implements Loadable {
     /**
      * A constructor for the FreightLiner.
      */
-    public Freightliner() {
-        super(2, 60, Color.blue, "Freightliner");
+    Freightliner() {
+        super(2, 60, Color.blue, "Model.Freightliner");
         this.tiltDeg = 0;
     }
     /**
@@ -55,7 +57,7 @@ public class Freightliner extends Cars implements Loadable {
      * A start engine that only works when the ramp is up.
      */
     @Override
-    void startEngine() {
+    public void startEngine() {
         this.tiltDeg = 0;
         super.startEngine();
     }
@@ -65,7 +67,7 @@ public class Freightliner extends Cars implements Loadable {
      * @throws InvalidParameterException
      */
     @Override //Get these ones better some way code reuse
-    void gas(double amount) throws InvalidParameterException {
+    public void gas(double amount) throws InvalidParameterException {
         this.tiltDeg = 0;
         super.gas(amount);
     }

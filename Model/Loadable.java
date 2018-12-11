@@ -1,3 +1,7 @@
+package Model;
+
+import Model.Cars;
+
 /**
  * An interface for all objects that have something to load.
  */

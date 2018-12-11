@@ -1,3 +1,9 @@
+package Model;
+
+import Model.Cargoship;
+import Model.FordGalaxy;
+import Model.Freightliner;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -113,11 +119,11 @@ class CarsTest {
     @Test
     void tiltUp() {
         c3.tiltUp();
-        assertEquals(c3.getTiltDeg(),0);
+        Assertions.assertEquals(c3.getTiltDeg(),0);
         c3.tiltDown();
         c3.tiltDown();
         c3.tiltUp();
-        assertEquals(c3.getTiltDeg(),1);
+        Assertions.assertEquals(c3.getTiltDeg(),1);
 
         assertEquals(c4.getTiltDeg(),0);
         c4.tiltUp();
@@ -132,11 +138,11 @@ class CarsTest {
 
     @Test
     void tiltDown() {
-        assertEquals(c3.getTiltDeg(), 0);
+        Assertions.assertEquals(c3.getTiltDeg(), 0);
         c3.tiltDown();
-        assertEquals(c3.getTiltDeg(),1);
+        Assertions.assertEquals(c3.getTiltDeg(),1);
         c3.startEngine();
-        assertEquals(c3.getTiltDeg(), 0);
+        Assertions.assertEquals(c3.getTiltDeg(), 0);
 
         assertEquals(c4.getTiltDeg(),0);
         c4.tiltDown();

@@ -1,12 +1,10 @@
+package Model;
+
 import java.awt.*;
 import java.security.InvalidParameterException;
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.List;
 
 /**
- * A class that represents a Cargoship that carries cars.
+ * A class that represents a Model.Cargoship that carries cars.
  * Could create an abstract boat class in the future if need be.
  */
 public class Cargoship extends Vehicle implements Loadable {
@@ -16,7 +14,7 @@ public class Cargoship extends Vehicle implements Loadable {
     /**
      * constructor for the ship.
      */
-    public Cargoship(){
+    Cargoship(){
         super(30, Color.GRAY, "CargoShip");
         this.tiltDeg = 0;
 
@@ -60,7 +58,7 @@ public class Cargoship extends Vehicle implements Loadable {
      * @throws InvalidParameterException
      */
     @Override
-    void gas(double amount) throws InvalidParameterException {
+    public void gas(double amount) throws InvalidParameterException {
         this.tiltDeg = 0;
         super.gas(amount);
     }
@@ -69,7 +67,7 @@ public class Cargoship extends Vehicle implements Loadable {
      * A start engine that sets the ramp up.
      */
     @Override
-    void startEngine() {
+    public void startEngine() {
         this.tiltDeg = 0;
         super.startEngine();
     }

@@ -1,7 +1,11 @@
+package Model;
+
+import Model.Cars;
+
 import java.awt.*;
 
 /**
- * Specific car model, Saab95. Subclass to Cars. Imports java.awt.
+ * Specific car model, Saab95. Subclass to Model.Cars. Imports java.awt.
  */
 
 public class Saab95 extends Cars {
@@ -13,7 +17,7 @@ public class Saab95 extends Cars {
     /**
      * Constructor for the Saab95
      */
-    public Saab95() {
+    Saab95() {
         super(2, 125, Color.red, "Saab95");
         this.turboOn = false;
         this.stopEngine();
@@ -22,14 +26,14 @@ public class Saab95 extends Cars {
     /**
      * Sets the boolean value of turboOn to true. Effectively enables the turbo function of the car.
      */
-    void setTurboOn() {
+    public void setTurboOn() {
         turboOn = true;
     }
 
     /**
      * Sets the boolean value of turboOn to false. Effectively disables turbo function of the car.
      */
-    void setTurboOff() {
+    public void setTurboOff() {
         turboOn = false;
     }
 

@@ -1,12 +1,14 @@
+package Model;
+
 import java.awt.*;
 
 /**
  * An extra car class for Ford Galaxy just because.
  */
-public class FordGalaxy extends Cars{
+public class FordGalaxy extends Cars {
 
 
-    public FordGalaxy() {
+    FordGalaxy() {
         super( 4, 80, Color.GRAY, "Ford Galaxy");
 
     }

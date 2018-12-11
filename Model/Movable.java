@@ -1,7 +1,9 @@
+package Model;
+
 import java.awt.*;
 
 /**
- * An interface for all Movable objects
+ * An interface for all Model.Movable objects
  */
 public interface Movable {
 
