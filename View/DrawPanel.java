@@ -1,7 +1,7 @@
 package View;
 
 import Controller.CarController;
-import Model.Cars;
+import Model.Car;
 import Model.PicPoint;
 
 import java.awt.*;
@@ -19,7 +19,7 @@ public class DrawPanel extends JPanel{
 
 
     private final List<PicPoint> positions = new ArrayList<>();
-    private final List<Cars> cars = CarController.getCars();
+    private final List<Car> cars = CarController.getCars();
 
 
     // Just a single image, TODO: Generalize
@@ -29,7 +29,7 @@ public class DrawPanel extends JPanel{
     // To keep track of a single cars position
 
     void refreshPoints(){
-        for (Cars c :cars){ //if outside range, turn around and set engine to starting speed
+        for (Car c :cars){ //if outside range, turn around and set engine to starting speed
             getCarImage(c);
             if (cars.size() != positions.size()){
                 positions.add(new PicPoint(new Point(0,0),getCarImage(c)));
@@ -38,7 +38,7 @@ public class DrawPanel extends JPanel{
         }
     }
     void checkValidPosition(){
-        for (Cars c :cars) { //if outside range, turn around and set engine to starting speed
+        for (Car c :cars) { //if outside range, turn around and set engine to starting speed
             if (hitsWall(c)) {
                 c.turnLeft();
                 c.turnLeft();
@@ -46,7 +46,7 @@ public class DrawPanel extends JPanel{
             }
         }
     }
-    boolean hitsWall(Cars c){
+    boolean hitsWall(Car c){
         if ((c.getPosX() > 680 && (c.getDeg() % 360 == 0)) || (c.getPosX() < 0 && (c.getDeg() % 360 == 180))){
             return true;
         }
@@ -55,7 +55,7 @@ public class DrawPanel extends JPanel{
         }
     }
 
-    BufferedImage getCarImage(Cars c){
+    BufferedImage getCarImage(Car c){
         switch (c.getModelName()){
             case "Volvo240":
                 return volvoImage;

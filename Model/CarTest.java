@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class CarsTest {
+class CarTest {
     private final Volvo240 c1 = new Volvo240();
     private final Saab95 c2 = new Saab95();
     private final Scania c3 = new Scania();

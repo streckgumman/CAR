@@ -1,14 +1,12 @@
 package Model;
 
-import Model.Cars;
-
 import java.awt.*;
 
 /**
- * Specific car model, Saab95. Subclass to Model.Cars. Imports java.awt.
+ * Specific car model, Saab95. Subclass to Model.Car. Imports java.awt.
  */
 
-public class Saab95 extends Cars {
+public class Saab95 extends Car {
     /**
      * Boolean for the turbo function of the specific car model. Affects the speedFactor of the car.
      */

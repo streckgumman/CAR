@@ -21,7 +21,7 @@ public class Application {
     CarView frame;
 
     // A list of cars, modify if needed
-    private final static ArrayList<Cars> cars = new ArrayList<>();
+    private final static ArrayList<Car> cars = new ArrayList<>();
 
     //methods:
 
@@ -47,7 +47,7 @@ public class Application {
    /*ner implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             int count = 0;
-            for (Cars car : cars) {
+            for (Car car : cars) {
                 car.move();
                 int x = (int) Math.round(car.getPosX());
                 int y = (int) Math.round(car.getPosY());

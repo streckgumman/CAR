@@ -2,15 +2,11 @@ package Model;
 
 import java.awt.*;
 import java.security.InvalidParameterException;
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.List;
 
 /**
  * A freightliner class for a lastbil that can load cars.
  */
-public class Freightliner extends Cars implements Loadable {
+public class Freightliner extends Car implements Loadable {
     private double tiltDeg;
     private final int maxCars = 3;
     private final Cargo c = new Cargo(this, maxCars);
@@ -29,7 +25,7 @@ public class Freightliner extends Cars implements Loadable {
     @Override
     public void move(){
         super.move();
-        for (Cars c : c.getLoaded()){
+        for (Car c : c.getLoaded()){
             c.setSamePosition(this);
         }
     }
@@ -80,7 +76,7 @@ public class Freightliner extends Cars implements Loadable {
      * A method that loads the cars according to the "last in, first out" - principle.
      * @param car
      */
-    public void loadCar(Cars car){
+    public void loadCar(Car car){
         c.loadCar(car);
     }
 

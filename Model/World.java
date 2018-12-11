@@ -1,29 +1,28 @@
 package Model;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-//supposed to add cars here and return and access list from here
+//supposed to add CARS here and return and access list from here
 public abstract class World {
-    private final static List<Cars> cars = new ArrayList<>();
+    private final static List<Car> CARS = new ArrayList<>();
 
-    public static void addCar(Cars car){
-        if (cars.size() < 10){
-            cars.add(car);
+    public static void addCar(Car car){
+        if (CARS.size() < 10){
+            CARS.add(car);
         }
     }
 
     public static void removeCar(){ //removes last added vehicle
-        if (cars.size() > 0){
-            cars.remove(cars.size() - 1);
+        if (CARS.size() > 0){
+            CARS.remove(CARS.size() - 1);
         }
     }
 
 
     /*void refreshPoints(){
-        for (Cars c :cars){ //if outside range, turn around and set engine to starting speed
+        for (Car c :CARS){ //if outside range, turn around and set engine to starting speed
             getCarImage(c);
-            if (cars.size() != positions.size()){
+            if (CARS.size() != positions.size()){
                 positions.add(new Model.PicPoint(new Point(0,0),getCarImage(c)));
 
             }
@@ -31,7 +30,7 @@ public abstract class World {
     }
 
     void checkValidPosition(){
-        for (Cars c :cars) { //if outside range, turn around and set engine to starting speed
+        for (Car c :CARS) { //if outside range, turn around and set engine to starting speed
             if (hitsWall(c)) {
                 c.turnLeft();
                 c.turnLeft();
@@ -39,7 +38,7 @@ public abstract class World {
             }
         }
     }
-    boolean hitsWall(Cars c){
+    boolean hitsWall(Car c){
         if ((c.getPosX() > 680 && (c.getDeg() % 360 == 0)) || (c.getPosX() < 0 && (c.getDeg() % 360 == 180))){
             return true;
         }
