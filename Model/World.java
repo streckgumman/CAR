@@ -9,12 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 //supposed to add cars here and return and access list from here
 public class World {
-    private final List<Cars> cars = new ArrayList<>();
+    private final List<Car> cars = new ArrayList<>();
     private List<WorldObserver> observers = new ArrayList<>();
     private final List<PicPoint> positions = new ArrayList<>();
 
 
-    public List<Cars> getCars() { // change implementation (alias issues)
+    public List<Car> getCars() { // change implementation (alias issues)
         return cars;
     }
 
@@ -34,7 +34,7 @@ public class World {
         }
     }
     void refreshPoints(){
-        for (Cars c :cars){ //if outside range, turn around and set engine to starting speed
+        for (Car c :cars){ //if outside range, turn around and set engine to starting speed
             if (cars.size() != positions.size()){
                 positions.add(new PicPoint(new Point(0,0),getCarImage(c)));
 
@@ -43,7 +43,7 @@ public class World {
         }
     }
     void checkValidPosition(){
-        for (Cars c :cars) { //if outside range, turn around and set engine to starting speed
+        for (Car c :cars) { //if outside range, turn around and set engine to starting speed
             if (hitsWall(c)) {
                 c.turnLeft();
                 c.turnLeft();
@@ -51,7 +51,7 @@ public class World {
             }
         }
     }
-    boolean hitsWall(Cars c){
+    boolean hitsWall(Car c){
         if ((c.getPosX() > 680 && (c.getDeg() % 360 == 0)) || (c.getPosX() < 0 && (c.getDeg() % 360 == 180))){
             return true;
         }
@@ -69,7 +69,7 @@ public class World {
 
 
 
-    BufferedImage getCarImage(Cars c){
+    BufferedImage getCarImage(Car c){
         try {
             // You can remove the "src\\pics" part if running outside of IntelliJ and
             // everything is in the same main folder.
@@ -105,57 +105,57 @@ public class World {
     // Calls the gas method for each car once
     public void gas(int amount) {
         double gas = ((double) amount) / 100;
-        for (Cars car : cars) {
+        for (Car car : cars) {
             car.gas(gas);
         }
 
     }
     public void brake(int amount) {
         double brake = ((double) amount) / 100;
-        for (Cars car : cars
+        for (Car car : cars
         ) {
             car.brake(brake);
         }
     }
     public void startEngine(){
-        for (Cars car : cars){
+        for (Car car : cars){
             car.startEngine();
         }
     }
     public void stopEngine(){
-        for (Cars car : cars){
+        for (Car car : cars){
             car.stopEngine();
         }
     }
     public void tiltDown(){
-        for (Cars car : cars){
+        for (Car car : cars){
             if (car instanceof Scania){
                 ((Scania) car).tiltDown();
             }
         }
     }
     public void tiltUp(){
-        for (Cars car : cars){
+        for (Car car : cars){
             if (car instanceof Scania){
                 ((Scania) car).tiltDown();
             }
         }
     }
     public void setTurboOn(){
-        for (Cars car : cars){
+        for (Car car : cars){
             if (car instanceof Saab95){
                 ((Saab95) car).setTurboOn();
             }
         }
     }
     public void setTurboOff(){
-        for (Cars car : cars){
+        for (Car car : cars){
             if (car instanceof Saab95){
                 ((Saab95) car).setTurboOff();
             }
         }
     }
-    public void addCar(Cars car){
+    public void addCar(Car car){
         if (cars.size() < 10){
             cars.add(car);
             positions.add(new PicPoint(new Point((int)car.getPosX(),(int)car.getPosY()),getCarImage(car)));

@@ -26,7 +26,7 @@ public class Cargoship extends Vehicle implements Loadable {
     @Override
     public void move(){
         super.move();
-        for (Cars c : c.getLoaded()){
+        for (Car c : c.getLoaded()){
             c.setSamePosition(this);
         }
     }
@@ -89,7 +89,7 @@ public class Cargoship extends Vehicle implements Loadable {
      * A method that loads the cars according to the "First in, first out"-principle.
      * @param car
      */
-    public void loadCar(Cars car){
+    public void loadCar(Car car){
         c.loadCar(car);
     }
 

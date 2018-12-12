@@ -41,7 +41,7 @@ public class CarController {
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             int count = 0;
-            for (Cars car : model.getCars()) {
+            for (Car car : model.getCars()) {
                 car.move();
                 int x = (int) Math.round(car.getPosX());
                 int y = (int) Math.round(car.getPosY());

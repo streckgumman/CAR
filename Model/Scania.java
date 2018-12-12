@@ -1,7 +1,5 @@
 package Model;
 
-import Model.Cars;
-
 import java.awt.*;
 import java.security.InvalidParameterException;
 
@@ -10,7 +8,7 @@ import java.security.InvalidParameterException;
  * Implements the interface Model.Loadable.
  * Extends Model.Cars.
  */
-public class Scania extends Cars implements Loadable {
+public class Scania extends Car implements Loadable {
     private double tiltDeg;
 
     Scania() {
@@ -76,7 +74,7 @@ public class Scania extends Cars implements Loadable {
     }
 
     @Override
-    public void loadCar(Cars c) {
+    public void loadCar(Car c) {
     }
 
 }
