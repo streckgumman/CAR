@@ -1,14 +1,16 @@
 package Model;
 
+import Model.Cars;
+
 import java.awt.*;
 import java.security.InvalidParameterException;
 
 /**
  * A class for a lastbil.
  * Implements the interface Model.Loadable.
- * Extends Model.Car.
+ * Extends Model.Cars.
  */
-public class Scania extends Car implements Loadable {
+public class Scania extends Cars implements Loadable {
     private double tiltDeg;
 
     Scania() {
@@ -74,7 +76,7 @@ public class Scania extends Car implements Loadable {
     }
 
     @Override
-    public void loadCar(Car c) {
+    public void loadCar(Cars c) {
     }
 
 }

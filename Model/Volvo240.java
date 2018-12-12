@@ -1,12 +1,14 @@
 package Model;
 
+import Model.Cars;
+
 import java.awt.*;
 
 /**
- * Specific car model, Volvo240. Subclass to Model.Car Imports java.awt.
+ * Specific car model, Volvo240. Subclass to Model.Cars Imports java.awt.
  */
 
-public class Volvo240 extends Car {
+public class Volvo240 extends Cars {
     /**
      * A static value that directly affects the speedFactor of this car model.
      */

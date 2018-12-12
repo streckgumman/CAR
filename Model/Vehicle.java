@@ -57,7 +57,7 @@ public abstract class Vehicle implements Movable {
 
 
     /**
-     * A method that increments the speed of our Model.Car by the following formula.
+     * A method that increments the speed of our Model.Cars by the following formula.
      * currentSpeed = getCurrentSpeed() + speedFactor * amount
      *
      * @param amount This value is determined by the gas() method. Valid range [0,1]
@@ -72,7 +72,7 @@ public abstract class Vehicle implements Movable {
     }
 
     /**
-     * A method that decrements the speed of our Model.Car by the following formula.
+     * A method that decrements the speed of our Model.Cars by the following formula.
      * currentSpeed = getCurrentSpeed() - speedFactor * amount
      *
      * @param amount This value is determined by the break() method. Valid range [0,1]

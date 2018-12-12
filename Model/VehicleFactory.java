@@ -2,19 +2,19 @@ package Model;
 
 public class VehicleFactory {
 
-    public static Car createSaab(){
+    public static Cars createSaab(){
         return new Saab95();
     }
-    public static Car createScania(){
+    public static Cars createScania(){
         return new Scania();
     }
-    public static Car createVolvo(){
+    public static Cars createVolvo(){
         return new Volvo240();
     }
-    public static Car createFreightliner(){
+    public static Cars createFreightliner(){
         return new Freightliner();
     }
-    public static Car createFordGalaxy(){
+    public static Cars createFordGalaxy(){
         return new FordGalaxy();
     }
     public static Vehicle createCargoship(){

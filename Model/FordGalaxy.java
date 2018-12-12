@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * An extra car class for Ford Galaxy just because.
  */
-public class FordGalaxy extends Car {
+public class FordGalaxy extends Cars {
 
 
     FordGalaxy() {

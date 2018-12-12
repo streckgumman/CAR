@@ -25,6 +25,4 @@ public class PicPoint {
     public BufferedImage getImage() {
         return image;
     }
-
-
 }
