@@ -198,4 +198,6 @@ public class CarView extends JFrame implements WorldObserver {
     public void actOnWorldChange() {
         drawPanel.repaint();
     }
+
 }
+
